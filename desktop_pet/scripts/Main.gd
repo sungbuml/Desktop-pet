@@ -52,6 +52,7 @@ func initialize_pet():
 	walking = false
 	
 	move_vector = Vector2i(-speed, 0)
+	pet.flip_h = false
 
 
 
@@ -78,8 +79,8 @@ func decide_behavior(delta):
 		timer = 0.0
 		var random = randi() % 4
 		if random < 3:
-			if random == 0:
-				change_dir()
+			#if random == 0:
+			change_dir()
 			walking = true
 		else:
 			walking = false
