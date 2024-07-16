@@ -3,13 +3,12 @@ extends Window
 signal higher
 signal lower
 signal reset
+signal change_pet(id)
 
-# Called when the node enters the scene tree for the first time.
+var cur_state: int = 1
+
 func _ready():
-	pass # Replace with function body.
-
-
-
+	get_node("VBoxContainer/OptionButton").select(cur_state)
 
 func _on_close_requested():
 	self.queue_free()
@@ -23,3 +22,6 @@ func _on_button_down_button_down():
 
 func _on_button_up_button_down():
 	emit_signal("higher")
+
+func _on_option_button_item_selected(index:int):
+	emit_signal("change_pet", index)
