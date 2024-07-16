@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvci1qksx8kjc"]
+[gd_scene load_steps=18 format=3 uid="uid://dvci1qksx8kjc"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_t25kx"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_u6ve6"]
 [ext_resource type="Texture2D" uid="uid://dcgikdnu70s7s" path="res://assets/red-panda_spritesheet.png" id="2_55ccf"]
+[ext_resource type="PackedScene" uid="uid://cs1rdgvm2xr3j" path="res://Settings.tscn" id="2_icodq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y2127"]
 atlas = ExtResource("2_55ccf")
@@ -108,17 +109,16 @@ animations = [{
 }]
 
 [node name="Node" type="Node2D" node_paths=PackedStringArray("pet")]
-script = ExtResource("1_t25kx")
+script = ExtResource("1_u6ve6")
 pet = NodePath("Sprite")
-main_camera = NodePath("Sprite/Camera2D")
+window = ExtResource("2_icodq")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, 0)
+position = Vector2(2.08165e-12, 2.08165e-12)
 sprite_frames = SubResource("SpriteFrames_f66su")
 animation = &"walk"
 autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="Sprite"]
-position = Vector2(-1, 0)
 zoom = Vector2(5, 5)

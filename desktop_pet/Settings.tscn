@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs1rdgvm2xr3j"]
+
+[ext_resource type="Script" path="res://scripts/Settings.gd" id="1_i0lfd"]
+[ext_resource type="Theme" uid="uid://jju0rmktcyit" path="res://ui_theme.tres" id="2_wgowr"]
+
+[node name="Window" type="Window"]
+position = Vector2i(0, 36)
+size = Vector2i(500, 500)
+content_scale_mode = 1
+script = ExtResource("1_i0lfd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -233.5
+offset_top = 15.0
+offset_right = 233.5
+offset_bottom = 250.0
+grow_horizontal = 2
+
+[node name="label_position" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wgowr")
+text = "Change Position
+"
+
+[node name="button_up" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wgowr")
+text = "Up"
+
+[node name="button_down" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wgowr")
+text = "Down"
+
+[node name="button_reset" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wgowr")
+text = "Reset
+"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="button_down" from="VBoxContainer/button_up" to="." method="_on_button_up_button_down"]
+[connection signal="button_down" from="VBoxContainer/button_down" to="." method="_on_button_down_button_down"]
+[connection signal="button_down" from="VBoxContainer/button_reset" to="." method="_on_button_reset_button_down"]
